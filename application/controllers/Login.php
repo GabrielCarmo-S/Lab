@@ -10,13 +10,13 @@ class Login extends CI_Controller
 
 		$this->load->library('session');
 		$this->session_data = $this->session->userdata('message');
+		$this->load->model("Login_model");
 	}
 
 	public function index()
 	{
 		$data['error'] = $this->session->flashdata('error');
 		$data['success'] = $this->session->flashdata('success');
-
 
 		$data["title"] = 'Login';
 		$this->load->view('templates/header', $data);
@@ -26,7 +26,7 @@ class Login extends CI_Controller
 
 	public function register()
 	{
-		$data['message'] = $this->session->flashdata('message');
+		$data['error'] = $this->session->flashdata('error');
 		$data["title"] = 'Registro';
 
 		$this->load->view('templates/header', $data);
@@ -36,10 +36,10 @@ class Login extends CI_Controller
 
 	public function signin()
 	{
-		$this->load->model("login_model");
+		
 		$email = $_POST["email"];
-		$password = ($_POST["password"]);
-		$user = $this->login_model->signin($email, $password);
+		$password = md5($_POST["password"]);
+		$user = $this->Login_model->signin($email, $password);
 
 		if ($user) {
 			$this->session->set_userdata("logged_user", $user);
@@ -50,43 +50,38 @@ class Login extends CI_Controller
 		}
 	}
 
-	public function logout(){
-		$this->session->unset_userdata("logged_user");
-		redirect("index.php/login");
-	}
-
     public function store(){
-		$this->load->model("Users_model");
-		$this->load->model("Login_model");
+
+		$now = new DateTime();
 
 		$user = array(
-			"name" => $_POST["nome"],
-			"cpf" => $_POST["cpf"],
-			"funcao" => 'P',
-			"datanasc" => $_POST["datanasc"],
+			"name" => $_POST["name"],
 			"email" => $_POST["email"],
 			"password" => md5($_POST["password"]),
-			"ativo" => 'S',
-			"img_user" => ''
+			"created" => $now->format('Y-m-d H:i:s'),
+			"modified" => $now->format('Y-m-d H:i:s'),
 		);
 
-		$email = $this->Users_model->getEmail($user['email']);
+		$email = $this->Login_model->getEmail($user['email']);
 
 		if(!empty($email)){
 			
-			$this->session->set_flashdata('message', 'Não foi possível criar sua conta pois esse email já esta cadastrado');
-			redirect("index.php/login/register");
+			$this->session->set_flashdata('error', 'Esse email já esta cadastrado');
+			redirect("login/register");
 			die();
 		}
 
-		if($this->Users_model->storeLogin($user)){
-			$this->session->unset_userdata(['message']);
-			$this->session->set_flashdata("success", 'Conta criada com sucesso, agora você pode fazer login');
-			redirect("index.php/login");		
-			
+		if($this->Login_model->store($user)){
+			$this->session->set_flashdata("success", 'Conta criada com sucesso');
+			redirect("login");		
 		}
 		
 		
+	}
+
+	public function logout(){
+		$this->session->unset_userdata("logged_user");
+		redirect("index.php/login");
 	}
 
 }

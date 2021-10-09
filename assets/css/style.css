@@ -44,7 +44,6 @@
 .container-right-login form {
     display: flex;
     width: 50%;
-    height: 50%;
 
     align-items: center;
     justify-self: center;
@@ -56,6 +55,14 @@
     font-weight: bold;
 }
 
+.container-right-login form a{
+    color: #A8A8B3;
+}
+
+.container-right-login form a:hover{
+    color: brightness(0.9);
+}
+
 .group-login{
     display: flex;
     width: 100%;
@@ -65,6 +72,7 @@
     justify-content: center;
 
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .group-login p {
@@ -97,7 +105,7 @@
     filter: brightness(0.9);
 }
 
-.error-login {
+.modal-login {
     display: flex;
     width: 100%;
     height: 100%;
@@ -109,7 +117,7 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-.error-login div{
+.modal-login div{
     display: flex;
     width: 30%;
     height: 30%;
@@ -122,11 +130,11 @@
     border-radius: 8px;
 }
 
-.error-login div img {
+.modal-login div img {
     margin-bottom: 10px;
 }
 
-.error-login div button {
+.stop-modal-login-error {
     height: 50px;
     width: 80%;
     border-radius: 8px;
@@ -136,8 +144,24 @@
     transition: filter 0.2s;
 }
 
-.error-login div button:hover {
+.stop-modal-login-success {
+    height: 50px;
+    width: 80%;
+    border-radius: 8px;
+    border: none;
+    background: #37C77F;
+    color: #fff;
+    transition: filter 0.2s;
+}
+
+.modal-login div button:hover {
     filter: brightness(0.9);
+}
+
+#success-register {
+    font-size: 45px;
+    color: #37C77F;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 850px) {
@@ -145,7 +169,7 @@
         display: none;
     }
 
-    .error-login div {
+    .modal-login div {
         width: 50%;
     }
 }
@@ -155,7 +179,11 @@
          width: 85%;
      }
 
-     .error-login div {
+     .group-login {
+        margin-top: 0px;
+     }
+
+     .modal-login div {
         width: 80%;
     }
 }

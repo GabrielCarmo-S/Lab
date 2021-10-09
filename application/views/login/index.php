@@ -16,15 +16,26 @@
                 <input type="password" placeholder="Senha" name="password" required />
                 <button type="submit">Entrar</button>
             </div>
+            <a href="<?= base_url()?>index.php/login/register">Criar Conta</a>
         </form>
     </div>
 
+    <?php if ($success) : ?>
+        <div class="modal-login">
+            <div>
+                <i id="success-register" class="far fa-check-circle"></i>
+                <p><?php print_r($success); ?></p>
+                <button class="stop-modal-login-success">Fechar</button>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <?php if ($error) : ?>
-        <div class="error-login">
+        <div class="modal-login">
             <div>
                 <img src="<?php echo base_url(); ?>assets/icons/error.svg" alt="">
                 <p><?php print_r($error); ?></p>
-                <button class="stop-error-login">Fechar</button>
+                <button class="stop-modal-login-error">Fechar</button>
             </div>
         </div>
     <?php endif; ?>
