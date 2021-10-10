@@ -43,7 +43,7 @@ class Login extends CI_Controller
 
 		if ($user) {
 			$this->session->set_userdata("logged_user", $user);
-			redirect("welcome");
+			redirect("home");
 		} else {
 			$this->session->set_flashdata("error", 'Senha ou e-mail inválido.');
 			redirect("login");
