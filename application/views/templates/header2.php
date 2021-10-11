@@ -17,7 +17,20 @@
 
     <div class="main-home">
         <div class="sidebar">
-            <div>
+            <div class="sidebar-img-user">
+                <img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
+            </div>
 
+            <div class="sidebar-icons">
+                <a href="" id="n26">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="" id="n27">
+                    <i class="fas fa-medal"></i>
+                </a>
+            </div>
+
+            <div class="sidebar-signout">
+                <img src="<?php echo base_url(); ?>assets/icons/signout.svg" alt="">
             </div>
         </div>
