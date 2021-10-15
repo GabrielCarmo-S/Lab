@@ -15,6 +15,4 @@ $name = $session['name'];
             <h1>Sair</h1>
         </div>
     </div>
-
-
 </div>
