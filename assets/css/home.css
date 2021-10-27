@@ -103,3 +103,38 @@
         width: 90%;
     }
 }
+
+#question_container {
+    flex-direction: column;
+}
+
+.question-input {
+    padding-bottom: 6%;
+    border: none;
+}
+
+.question-input:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.group-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.group-icon i{
+    font-size: 34px;
+    color: #835AFD;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}

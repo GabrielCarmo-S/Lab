@@ -8,7 +8,7 @@ $name = $session['name'];
     <h1>Seja Bem Vindo <?php print_r($name); ?></h1>
 
     <?php foreach ($categorias as $categoria) { ?>
-        <div class="category-home">
+        <a class="category-home" href="<?php echo base_url(); ?>index.php/question/index/<?php echo $categoria['id_category']?>">
             <div class="category-user-home">
                 <h2><?php print_r($categoria['name']); ?></h2>
 
@@ -17,6 +17,6 @@ $name = $session['name'];
                     <?php print_r($name); ?>
                 </div>
             </div>
-        </div>
+        </a>
     <?php } ?>
 </div>
