@@ -14,8 +14,6 @@ class Question extends CI_Controller
 		$data["title"] = 'Perguntas';
 		$data["id_category"] = $id_category;
 
-		//$this->load->model("Category_model");
-
 		$data['questions'] =  $this->Question_model->index($id_category);
 
 		$this->load->view('templates/header', $data);
@@ -37,7 +35,7 @@ class Question extends CI_Controller
 
 			);
 			if($this->Question_model->store($questions)){
-				redirect('/home');
+				redirect("question/index/".$id_category."");
 			}
 			exit();
 		}
