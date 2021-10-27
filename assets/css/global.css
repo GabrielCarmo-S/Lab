@@ -15,4 +15,9 @@ h1,h2,h3,h4,h5,h6 {
 
 body {
     background: #121214;
+    overflow: scroll;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
