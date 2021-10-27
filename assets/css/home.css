@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    position: fixed;
     width: 100%;
 
     align-items: center;
@@ -52,7 +53,8 @@
    /*  background: red; */
     flex-direction: column;
     padding-bottom: 50px;
-    padding-top: 50px;
+    padding-top: 80px;
+    overflow: scroll;
 }
 
 .category-home {
