@@ -15,7 +15,7 @@ class Question extends CI_Controller
 		$data["title"] = 'Perguntas';
 		$data["id_category"] = $id_category;
 
-		$data['questions'] =  $this->Question_model->index($id_category);
+		$data['questions'] = $this->Question_model->index($id_category);
 		$data['category'] =  $this->Category_model->show($id_category);
 
 		$this->load->view('templates/header', $data);
