@@ -19,7 +19,7 @@ $name = $session['name'];
 					<?php print_r($name); ?>
 				</div>
 				<div class="group-send-home">
-					<button type="submit" class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/Vector.svg"/> </button>
+					<button type="submit" class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/Vector.svg" /> </button>
 				</div>
 			</div>
 
@@ -30,9 +30,15 @@ $name = $session['name'];
 			<div class="category-user-home">
 				<h2><?php print_r($question['question']); ?></h2>
 
-				<div class="group-user-home">
-					<img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
-					<?php print_r($name); ?>
+				<div class="group-icon">
+					<div class="group-user-home">
+						<img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
+						<?php print_r($name); ?>
+					</div>
+					<div class="group-send-home" id="button-actions-home">
+						<a  class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
+						<a  class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+					</div>
 				</div>
 			</div>
 		</div>
