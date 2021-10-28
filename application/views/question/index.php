@@ -25,7 +25,9 @@ $name = $session['name'];
 
 		</div>
 	</form>
-	<?php foreach ($questions as $question) { ?>
+	<?php
+	 $i = 0;
+	 foreach ($questions as $question) { $i++; ?>
 		<div class="category-home">
 			<div class="category-user-home">
 				<h2><?php print_r($question['question']); ?></h2>
@@ -36,8 +38,8 @@ $name = $session['name'];
 						<?php print_r($name); ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
-						<a  class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
-						<a  class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+						<a style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
+						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $question['id_question']?>/<?php echo $question['id_category']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 					</div>
 				</div>
 			</div>

@@ -5,7 +5,7 @@ class Question extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-        permission();
+		permission();
 		$this->load->model("Question_model");
 		$this->load->model("Category_model");
 	}
@@ -24,24 +24,29 @@ class Question extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-    public function store($id_category)
+	public function store($id_category)
 	{
 		$now = new DateTime();
-		foreach ($_SESSION['logged_user'] as $ret){
+		foreach ($_SESSION['logged_user'] as $ret) {
 			$questions = array(
-				'question'=>$_POST['question'],
+				'question' => $_POST['question'],
 				"created" => $now->format('Y-m-d H:i:s'),
 				"modified" => $now->format('Y-m-d H:i:s'),
-				'id_user'=>$ret,
-				'id_category'=> $id_category,
+				'id_user' => $ret,
+				'id_category' => $id_category,
 
 			);
-			if($this->Question_model->store($questions)){
-				redirect("question/index/".$id_category."");
+			if ($this->Question_model->store($questions)) {
+				redirect("question/index/" . $id_category . "");
 			}
 			exit();
 		}
-	
 	}
 
+	public function destroy($id_question, $id_category)
+	{
+		$this->Question_model->destroy($id_question);
+		//$this->session->set_flashdata("success", 'Usuário deletado com sucesso');
+		redirect("/question/index/" . $id_category . "");
+	}
 }

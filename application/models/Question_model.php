@@ -15,5 +15,11 @@ class Question_model extends CI_Model
         return false;
     }
 
+    public function destroy($id_question)
+	{
+		$this->db->where('id_question', $id_question);
+		
+		return $this->db->delete('questions');;
+	}
 
 }
