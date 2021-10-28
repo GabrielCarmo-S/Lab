@@ -11,14 +11,16 @@ $name = $session['name'];
 
 	<form action="<?= base_url() ?>index.php/question/store/<?php echo $id_category; ?>" method="post">
 		<div class="category-home" id="question_container">
-			<input class="question-input" name="question" placeholder="O que você quer perguntar?">
+			<textarea class="question-input" name="question" rows="2" placeholder="O que você quer perguntar?"></textarea>
 
 			<div class="group-icon">
 				<div class="group-user-home">
 					<img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
 					<?php print_r($name); ?>
 				</div>
-				<button type="submit" class="" style="border: 0; background: transparent;"><i class="fas fa-location-arrow"></i></button>
+				<div class="group-send-home">
+					<button type="submit" class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/Vector.svg"/> </button>
+				</div>
 			</div>
 
 		</div>

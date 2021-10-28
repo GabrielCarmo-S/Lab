@@ -59,10 +59,8 @@
 
 .category-home {
     display: flex;
-
     width: 60%;
     height: 152px;
-
     margin-top: 5px;
 
     padding: 20px;
@@ -71,6 +69,7 @@
     border-radius: 8px;
 
     cursor: pointer;
+    justify-content: space-between;
 }
 
 .category-user-home {
@@ -96,6 +95,14 @@
     flex-direction: row;
 }
 
+.group-send-home{
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: row;
+}
+
 .group-user-home img {
     padding-right: 10px;
 }
@@ -108,10 +115,10 @@
 
 #question_container {
     flex-direction: column;
+    cursor: initial;
 }
 
 .question-input {
-    padding-bottom: 6%;
     border: none;
 }
 
