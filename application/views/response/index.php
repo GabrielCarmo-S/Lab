@@ -5,11 +5,11 @@ $name = $session['name'];
 
 <div class="main-home">
 
-	<!-- <?php foreach ($category as $cat) { ?>
+	<?php foreach ($category as $cat) { ?>
 		<h1><?php echo $cat['name']; ?></h1>
-	<?php } ?> -->
+	<?php } ?>
 
-	<form action="<?= base_url() ?>index.php/question/store/<?php echo $id_category; ?>" method="post">
+	<form action="<?= base_url() ?>index.php/question/store/" method="post">
 		<div class="category-home" id="question_container">
 			<textarea class="question-input" name="question" rows="2" placeholder="O que você quer perguntar?"></textarea>
 

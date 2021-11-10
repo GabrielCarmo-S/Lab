@@ -11,13 +11,13 @@ class Response extends CI_Controller
 		$this->load->model("Category_model");
 	}
 
-	public function index($id_question)
+	public function index($id_question, $id_category)
 	{
 		$data["title"] = 'Respostas';
 		$data["id_question"] = $id_question;
 
 		$data['questions'] =  $this->Question_model->show($id_question);
-		//$data['category'] =  $this->Category_model->show($id_category);
+		$data['category'] =  $this->Category_model->show($id_category);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);

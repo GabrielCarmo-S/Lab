@@ -38,7 +38,7 @@ $name = $session['name'];
 						<?php print_r($name); ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
-						<a href="<?php echo base_url(); ?>index.php/response/index/<?php echo $question['id_question']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
+						<a href="<?php echo base_url(); ?>index.php/response/index/<?php echo $question['id_question']?>/<?php echo $question['id_category']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
 						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $question['id_question']?>/<?php echo $question['id_category']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 					</div>
 				</div>
