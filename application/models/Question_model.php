@@ -24,4 +24,9 @@ class Question_model extends CI_Model
 
     return $this->db->delete('questions');;
   }
+
+  public function show($id_question)
+	{
+		return $this->db->get_where("questions", array('id_question' => $id_question))->result_array();
+	}
 }

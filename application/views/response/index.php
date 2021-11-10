@@ -5,9 +5,9 @@ $name = $session['name'];
 
 <div class="main-home">
 
-	<?php foreach ($category as $cat) { ?>
+	<!-- <?php foreach ($category as $cat) { ?>
 		<h1><?php echo $cat['name']; ?></h1>
-	<?php } ?>
+	<?php } ?> -->
 
 	<form action="<?= base_url() ?>index.php/question/store/<?php echo $id_category; ?>" method="post">
 		<div class="category-home" id="question_container">
@@ -27,10 +27,10 @@ $name = $session['name'];
 	</form>
 	<?php
 	 $i = 0;
-	 foreach ($questions as $question) { $i++; ?>
+	 foreach ($responses as $response) { $i++; ?>
 		<div class="category-home">
 			<div class="category-user-home">
-				<h2><?php print_r($question['question']); ?></h2>
+				<h2><?php print_r($response['answer']); ?></h2>
 
 				<div class="group-icon">
 					<div class="group-user-home">
@@ -38,7 +38,7 @@ $name = $session['name'];
 						<?php print_r($name); ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
-						<a href="<?php echo base_url(); ?>index.php/response/index/<?php echo $question['id_question']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
+						<a style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
 						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $question['id_question']?>/<?php echo $question['id_category']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 					</div>
 				</div>
