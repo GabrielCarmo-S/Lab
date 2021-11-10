@@ -7,12 +7,15 @@ $name = $session['name'];
     <div>
         <h1>Q&A Lab</h1>
     </div>
-    <div class="navbar-img-user">
-        <img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
-        <?php print_r($name); ?>
 
-        <div class="navbar-signout">
-            <h1>Sair</h1>
+    <div class="dropdown navbar-img-user">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff">
+            <img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
+            <?php print_r($name); ?>
+        </button>
+
+        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton" style="top: 80px">
+            <a href="<?= base_url('') ?>index.php/login/logout" style="width:100%; display: flex; align-items: center; justify-content: center">Sair</a>
         </div>
     </div>
 </div>
