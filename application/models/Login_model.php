@@ -24,4 +24,11 @@ class Login_model extends CI_Model
 			"email" => $email
 		))->row_array();
 	}
+
+    public function getUser($id_user)
+	{
+		return $this->db->get_where("users", array(
+			"id_user" => $id_user
+		))->result_array();
+	}
 }

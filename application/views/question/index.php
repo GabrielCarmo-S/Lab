@@ -26,8 +26,9 @@ $name = $session['name'];
 		</div>
 	</form>
 	<?php
-	 $i = 0;
-	 foreach ($questions as $question) { $i++; ?>
+	$i = 0;
+	foreach ($questions as $question) {
+		$i++; ?>
 		<div class="category-home">
 			<div class="category-user-home">
 				<h2><?php print_r($question['question']); ?></h2>
@@ -35,11 +36,13 @@ $name = $session['name'];
 				<div class="group-icon">
 					<div class="group-user-home">
 						<img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
-						<?php print_r($name); ?>
+						<?php foreach ($login as $lo) { ?>
+							<?php echo $lo['name']; ?>
+						<?php } ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
-						<a href="<?php echo base_url(); ?>index.php/response/index/<?php echo $question['id_question']?>/<?php echo $question['id_category']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
-						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $question['id_question']?>/<?php echo $question['id_category']?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+						<a href="<?php echo base_url(); ?>index.php/response/index/<?php echo $question['id_question'] ?>/<?php echo $question['id_category'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
+						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $question['id_question'] ?>/<?php echo $question['id_category'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 					</div>
 				</div>
 			</div>

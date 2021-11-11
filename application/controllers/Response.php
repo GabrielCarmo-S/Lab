@@ -9,6 +9,7 @@ class Response extends CI_Controller
 		$this->load->model("Question_model");
 	//	$this->load->model("Response_model");
 		$this->load->model("Category_model");
+		$this->load->model("Login_model");
 	}
 
 	public function index($id_question, $id_category)
@@ -18,6 +19,14 @@ class Response extends CI_Controller
 
 		$data['questions'] =  $this->Question_model->show($id_question);
 		$data['category'] =  $this->Category_model->show($id_category);
+
+		foreach ($data['questions'] as $ret){
+
+			$id_user = $ret['id_user'];
+
+		}
+
+		$data['login'] =  $this->Login_model->getUser($id_user);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);

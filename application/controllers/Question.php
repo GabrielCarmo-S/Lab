@@ -8,6 +8,7 @@ class Question extends CI_Controller
 		permission();
 		$this->load->model("Question_model");
 		$this->load->model("Category_model");
+		$this->load->model("Login_model");
 	}
 
 	public function index($id_category)
@@ -17,6 +18,14 @@ class Question extends CI_Controller
 
 		$data['questions'] = $this->Question_model->index($id_category);
 		$data['category'] =  $this->Category_model->show($id_category);
+		
+		foreach ($data['questions'] as $ret){
+
+			$id_user = $ret['id_user'];
+
+		}
+
+		$data['login'] =  $this->Login_model->getUser($id_user);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
