@@ -20,16 +20,4 @@
             <a href="<?= base_url()?>index.php/login/index">Login</a>
         </form>
     </div>
-
-    <?php if ($error) : ?>
-        <div class="modal-login">
-            <div>
-                <img src="<?php echo base_url(); ?>assets/icons/error.svg" alt="">
-                <p><?php print_r($error); ?></p>
-                <button class="stop-modal-login-error">Fechar</button>
-            </div>
-        </div>
-    <?php endif; ?>
-
-
 </div>

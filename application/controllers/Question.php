@@ -18,13 +18,14 @@ class Question extends CI_Controller
 
 		$data['questions'] = $this->Question_model->index($id_category);
 		$data['category'] =  $this->Category_model->show($id_category);
-		
-		if(!empty( $data['questions'])){
-			
-			foreach ($data['questions'] as $ret){
 
-			$id_user = $ret['id_user'];
+		if (!empty($data['questions'])) {
+
+			foreach ($data['questions'] as $ret) {
+
+				$id_user = $ret['id_user'];
 			}
+
 			$data['login'] =  $this->Login_model->getUser($id_user);
 		}
 
@@ -54,7 +55,7 @@ class Question extends CI_Controller
 			exit();
 		}
 	}
-		
+
 	public function destroy($id_question, $id_category)
 	{
 		$this->Question_model->destroy($id_question);

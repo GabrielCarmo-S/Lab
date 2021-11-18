@@ -14,10 +14,6 @@ $name = $session['name'];
 			<textarea class="question-input" name="question" rows="2" placeholder="O que você quer perguntar?"></textarea>
 
 			<div class="group-icon">
-				<div class="group-user-home">
-					<img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
-					<?php print_r($name); ?>
-				</div>
 				<div class="group-send-home">
 					<button type="submit" class="" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/Vector.svg" /> </button>
 				</div>
@@ -35,10 +31,6 @@ $name = $session['name'];
 
 				<div class="group-icon">
 					<div class="group-user-home">
-						<img src="<?php echo base_url(); ?>assets/icons/avatar.svg" alt="">
-						<?php foreach ($login as $lo) { ?>
-							<?php echo $lo['name']; ?>
-						<?php } ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
 						<a href="<?php echo base_url(); ?>index.php/response/index/<?php echo $question['id_question'] ?>/<?php echo $question['id_category'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
