@@ -11,15 +11,22 @@ class Response_model extends CI_Model
   }
 
   public function show($id_question)
-	{
-		return $this->db->get_where("questions", array('id_question' => $id_question))->result_array();
-	}
+  {
+    return $this->db->get_where("questions", array('id_question' => $id_question))->result_array();
+  }
 
-    public function store($response)
-    {
-      if ($this->db->insert("answers", $response)) {
-        return true;
-      }
-      return false;
+  public function store($response)
+  {
+    if ($this->db->insert("answers", $response)) {
+      return true;
     }
+    return false;
+  }
+
+  public function destroy($id_answer)
+  {
+    $this->db->where('id_answer', $id_answer);
+
+    return $this->db->delete('answers');
+  }
 }

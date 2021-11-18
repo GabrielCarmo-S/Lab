@@ -42,7 +42,7 @@ $name = $session['name'];
 					</div>
 					<div class="group-send-home" id="button-actions-home">
 						<?php if ($session['id_user'] == $response['id_user']) { ?>
-							<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $response['id_question'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+							<a href="<?php echo base_url(); ?>index.php/response/destroy/<?php echo $response['id_answer'] ?>/<?php echo $id_question  ?>/<?php echo $id_category ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 						<?php } ?>
 					</div>
 				</div>

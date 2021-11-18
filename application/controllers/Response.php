@@ -22,10 +22,9 @@ class Response extends CI_Controller
 		$data['responses'] =  $this->Response_model->index($id_question);
 		$data['category'] =  $this->Category_model->show($id_category);
 
-		foreach ($data['questions'] as $ret){
+		foreach ($data['questions'] as $ret) {
 
 			$id_user = $ret['id_user'];
-
 		}
 
 		$data['login'] =  $this->Login_model->getUser($id_user);
@@ -53,5 +52,11 @@ class Response extends CI_Controller
 			}
 			exit();
 		}
+	}
+
+	public function destroy($id_answer, $id_question, $id_category)
+	{
+		$this->Response_model->destroy($id_answer);
+		redirect("response/index/" . $id_question . "/" . $id_category . "");
 	}
 }
