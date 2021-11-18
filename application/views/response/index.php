@@ -9,7 +9,7 @@ $name = $session['name'];
 		<h1><?php echo $cat['name']; ?></h1>
 	<?php } ?>
 
-	<form action="<?= base_url() ?>index.php/response/store/<?php echo $id_question  ?>" method="post">
+	<form action="<?= base_url() ?>index.php/response/store/<?php echo $id_question  ?>/<?php echo $id_category ?>" method="post">
 		<div class="category-home" id="question_container">
 			<textarea class="question-input" name="answer" rows="2" placeholder="Responda aqui"></textarea>
 
@@ -41,7 +41,6 @@ $name = $session['name'];
 						<?php print_r($name); ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
-						<a style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
 						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $response['id_question'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 					</div>
 				</div>

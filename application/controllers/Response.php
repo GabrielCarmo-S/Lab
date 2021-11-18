@@ -16,6 +16,7 @@ class Response extends CI_Controller
 	{
 		$data["title"] = 'Respostas';
 		$data["id_question"] = $id_question;
+		$data["id_category"] = $id_category;
 
 		$data['questions'] =  $this->Question_model->show($id_question);
 		$data['responses'] =  $this->Response_model->index($id_question);
@@ -35,7 +36,7 @@ class Response extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function store($id_question)
+	public function store($id_question, $id_category)
 	{
 		$now = new DateTime();
 		foreach ($_SESSION['logged_user'] as $ret) {
@@ -48,7 +49,7 @@ class Response extends CI_Controller
 
 			);
 			if ($this->Response_model->store($answer)) {
-				redirect("response/index/" . $id_question . "");
+				redirect("response/index/" . $id_question . "/" . $id_category . "");
 			}
 			exit();
 		}
