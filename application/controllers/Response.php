@@ -7,7 +7,7 @@ class Response extends CI_Controller
 		parent::__construct();
 		permission();
 		$this->load->model("Question_model");
-	//	$this->load->model("Response_model");
+		$this->load->model("Response_model");
 		$this->load->model("Category_model");
 		$this->load->model("Login_model");
 	}
@@ -18,6 +18,7 @@ class Response extends CI_Controller
 		$data["id_question"] = $id_question;
 
 		$data['questions'] =  $this->Question_model->show($id_question);
+		$data['responses'] =  $this->Response_model->index($id_question);
 		$data['category'] =  $this->Category_model->show($id_category);
 
 		foreach ($data['questions'] as $ret){
@@ -32,5 +33,24 @@ class Response extends CI_Controller
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('response/index', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function store($id_question)
+	{
+		$now = new DateTime();
+		foreach ($_SESSION['logged_user'] as $ret) {
+			$answer = array(
+				'answer' => $_POST['answer'],
+				"created" => $now->format('Y-m-d H:i:s'),
+				"modified" => $now->format('Y-m-d H:i:s'),
+				'id_user' => $ret,
+				'id_question' => $id_question,
+
+			);
+			if ($this->Response_model->store($answer)) {
+				redirect("response/index/" . $id_question . "");
+			}
+			exit();
+		}
 	}
 }

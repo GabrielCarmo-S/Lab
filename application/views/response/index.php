@@ -9,9 +9,9 @@ $name = $session['name'];
 		<h1><?php echo $cat['name']; ?></h1>
 	<?php } ?>
 
-	<form action="<?= base_url() ?>index.php/question/store/" method="post">
+	<form action="<?= base_url() ?>index.php/response/store/<?php echo $id_question  ?>" method="post">
 		<div class="category-home" id="question_container">
-			<textarea class="question-input" name="question" rows="2" placeholder="O que você quer perguntar?"></textarea>
+			<textarea class="question-input" name="answer" rows="2" placeholder="Responda aqui"></textarea>
 
 			<div class="group-icon">
 				<div class="group-user-home">
@@ -42,7 +42,7 @@ $name = $session['name'];
 					</div>
 					<div class="group-send-home" id="button-actions-home">
 						<a style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/message.svg" /></a>
-						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $question['id_question'] ?>/<?php echo $question['id_category'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $response['id_question'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
 					</div>
 				</div>
 			</div>

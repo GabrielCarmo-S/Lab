@@ -54,7 +54,7 @@ class Question extends CI_Controller
 			exit();
 		}
 	}
-
+		
 	public function destroy($id_question, $id_category)
 	{
 		$this->Question_model->destroy($id_question);
