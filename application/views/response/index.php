@@ -41,7 +41,9 @@ $name = $session['name'];
 						<?php print_r($name); ?>
 					</div>
 					<div class="group-send-home" id="button-actions-home">
-						<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $response['id_question'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+						<?php if ($session['id_user'] == $response['id_user']) { ?>
+							<a href="<?php echo base_url(); ?>index.php/question/destroy/<?php echo $response['id_question'] ?>" style="border: 0; background: transparent;"><img src="<?php echo base_url(); ?>assets/icons/delete.svg" /></a>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
